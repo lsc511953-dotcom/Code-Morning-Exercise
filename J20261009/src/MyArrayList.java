@@ -18,7 +18,6 @@ public class MyArrayList<T> implements IList<T>{
         this.elem = new Object[initialCapacity];
     }
 
-
     @Override
     public boolean add(T data) {
         if(isFull()) {
