@@ -30,7 +30,7 @@ public class MySingleList<T> implements IList<T> {
     }
 
     @Override
-    public boolean contains(Object toFind) {
+    public boolean contains(T toFind) {
        ListNode<T> cur = this.head;
        while(cur != null) {
            if(cur.val.equals(toFind)) {
