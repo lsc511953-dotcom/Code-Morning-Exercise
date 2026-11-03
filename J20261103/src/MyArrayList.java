@@ -74,7 +74,7 @@ public class MyArrayList<T> implements IList<T>{
     public void add(int index,T data) {
         checkIndex(index);
         if(isFull()) {
-            grow();;
+            grow();
         }
         for (int i = size - 1; i >= index ; i--) {
             elem[i + 1] = elem[i];
