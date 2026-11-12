@@ -4,7 +4,7 @@ public interface IList<T> {
     //获取链表长度
     int size();
     //判断是否包含指定元素
-    boolean contains(Object toFind);
+    boolean contains(T toFind);
     //头插
     void addFirst(T data);
     //尾插
