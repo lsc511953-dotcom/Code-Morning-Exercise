@@ -15,7 +15,7 @@ public interface IList<T>{
     T set(int index,T data);
     //获取
     T get(int index);
-    //删除指定元素
+    //删除第一次出现的指定元素
     boolean remove(T key);
     //清空顺序表
     void clear();
