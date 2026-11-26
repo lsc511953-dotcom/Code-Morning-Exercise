@@ -1,0 +1,67 @@
+import java.util.Arrays;
+
+public class MyStack<E> {
+    private Object[] elem;
+    private int size;
+    private static final int DEFAULT_CAPACITY = 10;
+
+    public MyStack() {
+        elem = new Object[DEFAULT_CAPACITY];
+    }
+
+    public MyStack(int k) {
+        if(k <= 0) {
+            throw new IllegalArgumentException("初始容量必须大于0");
+        }
+        elem = new Object[k];
+    }
+
+    //入栈
+    public E push(E e) {
+        if(isFull()) {
+            grow();
+        }
+        elem[size] = e;
+        size++;
+        return e;
+    }
+
+    private boolean isFull() {
+        return size == elem.length;
+    }
+
+    private void grow() {
+        elem = Arrays.copyOf(elem,2 * elem.length);
+    }
+
+    //出栈
+    @SuppressWarnings("unchecked")
+    public E pop() {
+        if(isEmpty()) {
+            throw new StackEmptyException("栈空异常");
+        }
+        E oldVal = (E)elem[size - 1];
+        elem[size - 1] = null;
+        size--;
+        return oldVal;
+    }
+
+    //查看栈顶元素
+    @SuppressWarnings("unchecked")
+    public E peek() {
+        if(isEmpty()) {
+            throw new StackEmptyException("栈内无元素");
+        }
+        return (E)elem[size - 1];
+    }
+
+    //判断栈是否为空
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    //获取栈内元素个数
+    public int size() {
+        return size;
+    }
+}
